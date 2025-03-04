@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload - Pixify</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .upload-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 5%;
+    }
+    
+    .upload-container h1 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+    
+    .upload-box {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+    
+    .upload-area {
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .upload-area:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .upload-icon {
+      font-size: 3rem;
+      color: #4a6cf7;
+      margin-bottom: 1rem;
+    }
+    
+    .upload-text h2 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .upload-text p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    
+    .browse-btn {
+      background-color: #4a6cf7;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .browse-btn:hover {
+      background-color: #3a5ce5;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .checkbox-group {
+      margin-top: 1rem;
+    }
+    
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      font-weight: normal;
+    }
+    
+    .checkbox-group input {
+      width: auto;
+      margin-right: 0.5rem;
+    }
+    
+    .submit-btn {
+      background-color: #4a6cf7;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 1rem;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .submit-btn:hover {
+      background-color: #3a5ce5;
+    }
+    
+    .upload-guidelines {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .upload-guidelines h3 {
+      margin-bottom: 1rem;
+    }
+    
+    .upload-guidelines ul {
+      padding-left: 1.5rem;
+    }
+    
+    .upload-guidelines li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header style="padding-bottom: 0;">
+    <nav>
+      <div class="logo">
+        <i class="fas fa-camera"></i>
+        <h1>Pixify</h1>     
+      </div>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for free photos">
+        <button id="search-button"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Explore</a>
+        <a href="license.html" class="nav-link">License</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+        <a href="#" class="nav-link join-btn">Join</a>
+      </div>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main class="upload-container">
+    <h1>Share Your Photos With The World</h1>
+    
+    <div class="upload-box">
+      <div class="upload-area" id="upload-area">
+        <div class="upload-icon">
+          <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <div class="upload-text">
+          <h2>Drag and drop your photos here</h2>
+          <p>or</p>
+          <a href="#" class="browse-btn">Browse files</a>
+          <input type="file" id="file-input" style="display: none;" multiple accept="image/*">
+        </div>
+      </div>
+      
+      <form id="upload-form">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Give your photo a title" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" placeholder="Describe your photo"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="" disabled selected>Select a category</option>
+            <option value="nature">Nature</option>
+            <option value="people">People</option>
+            <option value="architecture">Architecture</option>
+            <option value="technology">Technology</option>
+            <option value="animals">Animals</option>
+            <option value="travel">Travel</option>
+            <option value="business">Business</option>
+            <option value="food">Food</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="tags">Tags (separated by commas)</label>
+          <input type="text" id="tags" name="tags" placeholder="landscape, mountains, sunset">
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" name="license" required>
+            I agree to the <a href="license.html" target="_blank">Pixify License</a>
+          </label>
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" name="model-release">
+            I have model releases for any recognizable people in the photo
+          </label>
+        </div>
+        
+        <button type="submit" class="submit-btn">Upload Photo</button>
+      </form>
+      
+      <div class="upload-guidelines">
+        <h3>Upload Guidelines</h3>
+        <ul>
+          <li>Photos must be your own original work</li>
+          <li>Minimum resolution: 1920x1080 pixels</li>
+          <li>Maximum file size: 25MB</li>
+          <li>Accepted formats: JPG, PNG</li>
+          <li>No watermarks, borders, or text overlays</li>
+          <li>No explicit or offensive content</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <i class="fas fa-camera"></i>
+          <h3>Pixify</h3>
+        </div>
+        <p>The internet's source for visuals.</p>
+        <p>Powered by creators everywhere.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="#">Creators</a></li>
+          <li><a href="#">Trends</a></li>
+          <li><a href="#">Collections</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pixify. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Upload page specific script
+    document.addEventListener('DOMContentLoaded', () => {
+      const uploadArea = document.getElementById('upload-area');
+      const fileInput = document.getElementById('file-input');
+      const browseBtn = document.querySelector('.browse-btn');
+      const uploadForm = document.getElementById('upload-form');
+      
+      // Trigger file input when clicking on the upload area or browse button
+      uploadArea.addEventListener('click', () => {
+        fileInput.click();
+      });
+      
+      browseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+         fileInput.click();
+      });
+      
+      // Handle file selection
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          uploadArea.querySelector('h2').textContent = `${fileInput.files.length} file(s) selected`;
+          uploadArea.style.borderColor = '#4a6cf7';
+        }
+      });
+      
+      // Handle drag and drop
+      uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.style.backgroundColor = '#f0f4ff';
+        uploadArea.style.borderColor = '#4a6cf7';
+      });
+      
+      uploadArea.addEventListener('dragleave', () => {
+        uploadArea.style.backgroundColor = '';
+        uploadArea.style.borderColor = '#ccc';
+      });
+      
+      uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.style.backgroundColor = '';
+        uploadArea.style.borderColor = '#4a6cf7';
+        
+        if (e.dataTransfer.files.length > 0) {
+          fileInput.files = e.dataTransfer.files;
+          uploadArea.querySelector('h2').textContent = `${fileInput.files.length} file(s) selected`;
+        }
+      });
+      
+      // Form submission (simulated)
+      uploadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        if (!fileInput.files.length) {
+          alert('Please select at least one photo to upload');
+          return;
+        }
+        
+        // Simulate upload process
+        alert('Upload functionality would be implemented in a production environment. Your photos would be uploaded now.');
+      });
+      
+      // Mobile menu toggle
+      document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+        alert('Mobile menu would open here in a full implementation');
+      });
+    });
+  </script>
+</body>
+</html>

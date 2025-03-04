@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Explore - Pixcel</title>
+     <link rel="stylesheet" href="styles.css">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+     <style>
+         .category-filters {
+             max-width: 1200px;
+             margin: 6rem auto 2rem;
+             padding: 0 1rem;
+             display: flex;
+             gap: 0.5rem;
+             overflow-x: auto;
+             padding-bottom: 1rem;
+         }
+         
+         .category-btn {
+             padding: 0.5rem 1rem;
+             border: 1px solid #e5e7eb;
+             border-radius: 9999px;
+             background: white;
+             cursor: pointer;
+             white-space: nowrap;
+         }
+         
+         .category-btn.active {
+             background: #1a1a1a;
+             color: white;
+             border-color: #1a1a1a;
+         }
+     </style>
+ </head>
+ <body>
+     <!-- Navbar (same as index.html) -->
+     <nav class="navbar">
+         <div class="nav-container">
+             <a href="/" class="logo">
+                 <i class="fas fa-camera"></i>
+                 <span>Pixcel</span>
+             </a>
+             <div class="nav-links">
+                 <a href="/explore.html" class="active">Explore</a>
+                 <a href="/license.html">License</a>
+                 <button class="upload-btn" onclick="location.href='/upload.html'">
+                     <i class="fas fa-upload"></i> Upload
+                 </button>
+                 <button class="join-btn" onclick="location.href='/join.html'">Join</button>
+             </div>
+         </div>
+     </nav>
+ 
+     <!-- Category Filters -->
+     <div class="category-filters">
+         <button class="category-btn active">Nature</button>
+         <button class="category-btn">Portrait</button>
+         <button class="category-btn">Urban</button>
+         <button class="category-btn">Abstract</button>
+     </div>
+ 
+     <!-- Photo Grid -->
+     <section class="photo-grid" id="photoGrid">
+         <!-- Photos will be added here by JavaScript -->
+     </section>
+ 
+     <script src="script.js"></script>
+     <script>
+         // Category filter functionality
+         const categoryBtns = document.querySelectorAll('.category-btn');
+         categoryBtns.forEach(btn => {
+             btn.addEventListener('click', () => {
+                 categoryBtns.forEach(b => b.classList.remove('active'));
+                 btn.classList.add('active');
+                 
+                 const category = btn.textContent.toLowerCase();
+                 const filteredPhotos = category === 'all' 
+                     ? photos 
+                     : photos.filter(photo => photo.category === category);
+                 
+                 const photoGrid = document.getElementById('photoGrid');
+                 photoGrid.innerHTML = '';
+                 filteredPhotos.forEach(photo => {
+                     const card = createPhotoCard(photo);
+                     photoGrid.appendChild(card);
+                 });
+             });
+         });
+     </script>
+ </body>
+ </html>
+ 

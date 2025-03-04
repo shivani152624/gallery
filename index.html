@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixify - Free Stock Photos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-camera"></i>
+        <h1>Pixify</h1>     
+      </div>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for free photos">
+        <button id="search-button"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="nav-links">
+        <a href="explore.html" class="nav-link">Explore</a>
+        <a href="license.html" class="nav-link">License</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+        <a href="join.html" class="nav-link join-btn">Join</a>
+      </div>
+      <div class="mobile-menu-btn">
+        <em class="fas fa-bars"></em>
+      </div>
+    </nav>
+    <div class="hero">
+      <h1>The best free stock photos shared by talented creators</h1>
+      <div class="hero-search">
+        <input type="text" id="hero-search-input" placeholder="Search for free photos">
+        <button id="hero-search-button"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="trending">
+        <p>Trending: 
+          <span class="trend-tag" data-category="nature">nature</span>, 
+          <span class="trend-tag" data-category="business">business</span>, 
+          <span class="trend-tag" data-category="wallpaper">wallpaper</span>, 
+          <span class="trend-tag" data-category="food">food</span>, 
+          <span class="trend-tag" data-category="travel">travel</span>, 
+          <span class="trend-tag" data-category="beach">beach</span>, 
+          <span class="trend-tag" data-category="technology">technology</span>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section class="categories">
+    <h2>Free Stock Photos</h2>
+    <div class="category-tags">
+      <a href="#" class="category-tag" data-category="nature">Nature</a>
+      <a href="#" class="category-tag" data-category="people">People</a>
+      <a href="#" class="category-tag" data-category="architecture">Architecture</a>
+      <a href="#" class="category-tag" data-category="technology">Technology</a>
+      <a href="#" class="category-tag" data-category="animals">Animals</a>
+      <a href="#" class="category-tag" data-category="travel">Travel</a>
+      <a href="#" class="category-tag" data-category="business">Business</a>
+      <a href="#" class="category-tag" data-category="food">Food</a>
+    </div>
+  </section>
+
+  <main class="photo-grid" id="photo-grid">
+    <!-- Photos will be dynamically inserted here by JavaScript -->
+  </main>
+
+  <div class="photo-modal" id="photo-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <img id="modal-img" src="" alt="Full size photo">
+      <div class="modal-info">
+        <div class="photographer">
+          <p>Photo by <span id="modal-photographer"></span></p>
+          <p class="category-label">Category: <span id="modal-category"></span></p>
+        </div>
+        <div class="modal-actions">
+          <button class="like-btn"><i class="fas fa-heart"></i> Like</button>
+          <button class="download-btn"><i class="fas fa-download"></i> Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <i class="fas fa-camera"></i>
+          <h3>Pixify</h3>
+        </div>
+        <p>The internet's source for visuals.</p>
+        <p>Powered by creators everywhere.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="#">Creators</a></li>
+          <li><a href="#">Trends</a></li>
+          <li><a href="#">Collections</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pixify. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
